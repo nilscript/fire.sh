@@ -84,10 +84,9 @@ update() {
 
 draw() {
 	i=0
-	for ((y=0; y < HEIGHT; y++)); do
-		for ((x=0; x < WIDTH; x++)); do
-			printf '\e[%d;%dH%s%s' "$((y + 1))" "$((x + 1))" \
-			"${DISPLAY[$i]}"
+	for ((y=1; y <= HEIGHT; y++)); do
+		for ((x=1; x <= WIDTH; x++)); do
+			printf '\e[%d;%dH%s%s' "$y" "$x" "${DISPLAY[$i]}"
 			let i+=1
 		done
 	done
